@@ -3,7 +3,7 @@
 This publication describes a standard filesystem skeleton suitable for all PHP
 packages.
 
-Please see <https://github.com/php-pds/skeleton_report> for background information.
+Please see <https://github.com/php-pds/skeleton_research> for background information.
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
 "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this publication are to be
