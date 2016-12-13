@@ -62,6 +62,11 @@ If the package provides a directory for web server files, it MUST be named
 This publication does not otherwise define the structure and contents of the
 directory.
 
+> N.b.: This directory MAY or MAY NOT be intended as a document root in itself.
+> It MAY be that the files will be served dynamically via other code, copied
+> or symlinked to the "real" document root, or otherwise managed so that they
+> become publicly available on the web.
+
 ### src/
 
 If the package provides a directory for source code files, it MUST be named
