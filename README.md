@@ -15,17 +15,17 @@ A package MUST use the following names for the following kinds of directories
 and files:
 
 ```
-bin/            # command-line executables
-config/         # configuration files
-docs/           # documentation and examples
-public/         # web server files
-src/            # php source code
-tests/          # test code
-vendor/         # reserved for package managers
-CHANGELOG       # a log of changes between releases
-CONTRIBUTING    # guidelines for contributors
-LICENSE         # licensing information
-README          # information about the package itself
+bin/                # command-line executables
+config/             # configuration files
+docs/               # documentation and examples
+public/             # web server files
+src/                # php source code
+tests/              # test code
+vendor/             # reserved for package managers
+CHANGELOG(.*)       # a log of changes between releases
+CONTRIBUTING(.*)    # guidelines for contributors
+LICENSE(.*)         # licensing information
+README(.*)          # information about the package itself
 ```
 
 ## Root-Level Directories
