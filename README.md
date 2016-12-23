@@ -19,7 +19,8 @@ bin/                # command-line executables
 config/             # configuration files
 docs/               # documentation and examples
 public/             # web server files
-src/                # php source code
+resources/          # other resource files
+src/                # PHP source code
 tests/              # test code
 vendor/             # reserved for package managers
 CHANGELOG(.*)       # a log of changes between releases
@@ -66,6 +67,14 @@ directory.
 > Alternatively, it MAY be that the files will be served dynamically via other
 > code, copied or symlinked to the "real" document root, or otherwise managed so
 > that they become publicly available on the web.
+
+### resources/
+
+If the package provides a root-level directory for other resource files, it MUST be named
+`resources/`.
+
+This publication does not otherwise define the structure and contents of the
+directory.
 
 ### src/
 
