@@ -136,8 +136,12 @@ file.
 
 ### LICENSE
 
-If the package provides a root-level file with licensing information, it MUST be named
-`LICENSE`.
+Whereas package consumers MAY be in violation of copyright law when copying
+unlicensed intellectual property, the package SHOULD include a root-level file
+indicating the licensing and copyright terms of the package contents.
+
+If the package provides a root-level file indicating the licensing and copyright
+terms of the package contents, it MUST be named `LICENSE`.
 
 It MAY have a lowercase filename extension indicating the file format.
 
