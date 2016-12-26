@@ -136,7 +136,7 @@ file.
 
 ### LICENSE
 
-Whereas package consumers MAY be in violation of copyright law when copying
+Whereas package consumers might be in violation of copyright law when copying
 unlicensed intellectual property, the package SHOULD include a root-level file
 indicating the licensing and copyright terms of the package contents.
 
