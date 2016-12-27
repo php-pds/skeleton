@@ -12,23 +12,31 @@ interpreted as described in [RFC 2119](http://tools.ietf.org/html/rfc2119).
 
 ## Summary
 
-A package MUST use the following names for the following kinds of directories
-and files:
+A package MUST use these names for these root-level directories:
 
-```
-bin/                # command-line executables
-config/             # configuration files
-docs/               # documentation and examples
-public/             # web server files
-resources/          # other resource files
-src/                # PHP source code
-tests/              # test code
-vendor/             # reserved for package managers
-CHANGELOG(.*)       # a log of changes between releases
-CONTRIBUTING(.*)    # guidelines for contributors
-LICENSE(.*)         # licensing information
-README(.*)          # information about the package itself
-```
+| If a package has a root-level directory for ... | ... then it MUST be named: |
+| ----------------------------------------------- | -------------------------- |
+| command-line executables                        | `bin/`                     |
+| configuration files                             | `config/`                  |
+| documentation and examples                      | `docs/`                    |
+| web server files                                | `public/`                  |
+| other resource files                            | `resources/`               |
+| PHP source code                                 | `src/`                     |
+| test code                                       | `tests/`                   |
+
+The root-level directory `vendor/` MUST be reserved for package managers.
+
+A package MUST use these names for these root-level files:
+
+| If a package has a root-level file for ...      | ... then it MUST be named: |
+| ----------------------------------------------- | -------------------------- |
+| a log of changes between releases               | `CHANGELOG(.*)`            |
+| guidelines for contributors                     | `CONTRIBUTING(.*)`         |
+| licensing information                           | `LICENSE(.*)`              |
+| information about the package itself            | `README(.*)`               |
+
+A package SHOULD include a root-level file indicating the licensing and
+copyright terms of the package contents.
 
 ## Root-Level Directories
 
