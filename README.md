@@ -18,7 +18,7 @@ A package MUST use these names for these root-level directories:
 | ----------------------------------------------- | -------------------------- |
 | command-line executables                        | `bin/`                     |
 | configuration files                             | `config/`                  |
-| documentation and examples                      | `docs/`                    |
+| documentation files                             | `docs/`                    |
 | web server files                                | `public/`                  |
 | other resource files                            | `resources/`               |
 | PHP source code                                 | `src/`                     |
