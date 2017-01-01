@@ -1,6 +1,7 @@
 {
     "name": "pds/skeleton",
-    "type": "standard",
+    "type": "metapackage",
+    "keyword": ["standard"]
     "description": "Standard for PHP package skeletons.",
     "homepage": "https://github.com/php-pds/skeleton",
     "license": "CC-BY-SA-4.0"
