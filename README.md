@@ -38,6 +38,13 @@ A package MUST use these names for these root-level files:
 A package SHOULD include a root-level file indicating the licensing and
 copyright terms of the package contents.
 
+## Validator
+
+Quickly validate your project's compliance by following these steps:
+
+- Install package in your project: `composer require pds/skeleton @dev`
+- Run the validator: `./vendor/pds/skeleton/bin/validate`
+
 ## Root-Level Directories
 
 ### bin/
