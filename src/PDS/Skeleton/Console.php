@@ -6,6 +6,7 @@ class Console
 {
     protected $commandsWhitelist = [
         'validate' => 'PDS\Skeleton\ComplianceValidator',
+        'generate' => 'PDS\Skeleton\PackageGenerator',
     ];
 
     public function execute($args)
