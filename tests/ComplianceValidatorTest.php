@@ -1,7 +1,18 @@
 <?php
 
-define('ENV', 'test');
-require __DIR__ . "/../bin/validate";
+$autoloadFiles = [
+    __DIR__ . '/../vendor/autoload.php',
+    __DIR__ . '/../../../autoload.php'
+];
+
+foreach ($autoloadFiles as $autoloadFile) {
+    if (file_exists($autoloadFile)) {
+        require_once $autoloadFile;
+        break;
+    }
+}
+
+use PDS\Skeleton\ComplianceValidator;
 
 $tester = new ComplianceValidatorTest();
 // Test all 4 possible states.
