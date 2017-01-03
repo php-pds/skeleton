@@ -41,7 +41,7 @@ copyright terms of the package contents.
 Quickly validate your project's compliance by following these steps:
 
 - Install package in your project: `composer require pds/skeleton @dev`
-- Run the validator: `./vendor/pds/skeleton/bin/validate`
+- Run the validator: `vendor/bin/pdsskeleton validate`
 
 ## Root-Level Directories
 
