@@ -12,8 +12,8 @@ foreach ($autoloadFiles as $autoloadFile) {
     }
 }
 
-use PDS\Skeleton\ComplianceValidator;
-use PDS\Skeleton\PackageGenerator;
+use Pds\Skeleton\ComplianceValidator;
+use Pds\Skeleton\PackageGenerator;
 
 $tester = new PackageGeneratorTest();
 $tester->testGenerate_WithMissingBin_ReturnsBin();

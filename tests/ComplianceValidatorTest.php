@@ -12,7 +12,7 @@ foreach ($autoloadFiles as $autoloadFile) {
     }
 }
 
-use PDS\Skeleton\ComplianceValidator;
+use Pds\Skeleton\ComplianceValidator;
 
 $tester = new ComplianceValidatorTest();
 // Test all 4 possible states.

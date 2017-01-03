@@ -1,12 +1,12 @@
 <?php
 
-namespace PDS\Skeleton;
+namespace Pds\Skeleton;
 
 class Console
 {
     protected $commandsWhitelist = [
-        'validate' => 'PDS\Skeleton\ComplianceValidator',
-        'generate' => 'PDS\Skeleton\PackageGenerator',
+        'validate' => 'Pds\Skeleton\ComplianceValidator',
+        'generate' => 'Pds\Skeleton\PackageGenerator',
     ];
 
     public function execute($args)

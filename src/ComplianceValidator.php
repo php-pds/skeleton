@@ -1,6 +1,6 @@
 <?php
 
-namespace PDS\Skeleton;
+namespace Pds\Skeleton;
 
 class ComplianceValidator
 {
@@ -57,7 +57,7 @@ class ComplianceValidator
     public function getFiles()
     {
         if ($this->files == null) {
-            $files = scandir(__DIR__ . "/../../../../../../");
+            $files = scandir(__DIR__ . "/../../../../");
             foreach ($files as $i => $file) {
                 if (is_dir($file)) {
                     $files[$i] .= "/";

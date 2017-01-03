@@ -1,8 +1,8 @@
 <?php
 
-namespace PDS\Skeleton;
+namespace Pds\Skeleton;
 
-use PDS\Skeleton\ComplianceValidator;
+use Pds\Skeleton\ComplianceValidator;
 
 class PackageGenerator
 {
@@ -19,21 +19,24 @@ class PackageGenerator
     public function createFiles($validatorResults, $root = null)
     {
         if ($root == null) {
-            $root = realpath(__DIR__ . "/../../../../../../");
+            $root = realpath(__DIR__ . "/../../../../");
         }
         $files = $this->createFileList($validatorResults);
-        foreach ($files as $file) {
+        $createdFiles = [];
+        foreach ($files as $i => $file) {
             $isDir = substr($file, -1, 1) == '/';
             if ($isDir) {
                 $path = $root . '/' . substr($file, 0, -1);
+                $createdFiles[$file] = $path;
                 mkdir($path, 0755);
                 continue;
             }
             $path = $root . '/' . $file . '.md';
+            $createdFiles[$file] = $file . '.md';
             file_put_contents($path, '');
             chmod($path, 0644);
         }
-        return $files;
+        return $createdFiles;
     }
 
     public function createFileList($validatorResults)

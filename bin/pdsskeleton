@@ -14,7 +14,7 @@ foreach ($autoloadFiles as $autoloadFile) {
     }
 }
 
-use PDS\Skeleton\Console;
+use Pds\Skeleton\Console;
 
 $console = new Console();
 $console->execute($argv);
