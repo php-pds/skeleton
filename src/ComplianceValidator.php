@@ -1,18 +1,6 @@
-#!/usr/bin/env php
-
 <?php
 
-if (!defined('ENV') || ENV != 'test') {
-    $lines = scandir(__DIR__ . "/../../../../");
-    foreach ($lines as $i => $line) {
-        if (is_dir($line)) {
-            $lines[$i] .= "/";
-        }
-    }
-    $validator = new ComplianceValidator();
-    $results = $validator->validate($lines);
-    $validator->outputResults($results);
-}
+namespace Pds\Skeleton;
 
 class ComplianceValidator
 {
@@ -20,6 +8,16 @@ class ComplianceValidator
     const STATE_CORRECT_PRESENT = 2;
     const STATE_REQUIRED_NOT_PRESENT = 3;
     const STATE_INCORRECT_PRESENT = 4;
+
+    protected $files = null;
+
+    public function execute()
+    {
+        $lines = $this->getFiles();
+        $results = $this->validate($lines);
+        $this->outputResults($results);
+        return true;
+    }
 
     public function validate($lines)
     {
@@ -51,6 +49,24 @@ class ComplianceValidator
             ];
         }
         return $results;
+    }
+
+    /**
+     * Get list of files and directories previously set, or generate from parent project.
+     */
+    public function getFiles()
+    {
+        if ($this->files == null) {
+            $files = scandir(__DIR__ . "/../../../../");
+            foreach ($files as $i => $file) {
+                if (is_dir($file)) {
+                    $files[$i] .= "/";
+                }
+            }
+            $this->files = $files;
+        }
+
+        return $this->files;
     }
 
     public function outputResults($results)
