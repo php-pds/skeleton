@@ -24,8 +24,6 @@ A package MUST use these names for these root-level directories:
 | PHP source code                                 | `src/`                     |
 | test code                                       | `tests/`                   |
 
-The root-level directory `vendor/` MUST be reserved for package managers.
-
 A package MUST use these names for these root-level files:
 
 | If a package has a root-level file for ...      | ... then it MUST be named: |
@@ -104,19 +102,6 @@ directory.
 
 If the package provides a root-level directory for test files, it MUST be named
 `tests/`.
-
-This publication does not otherwise define the structure and contents of the
-directory.
-
-### vendor/
-
-The `vendor/` directory MUST be reserved for use by package managers (e.g.:
-Composer).
-
-It MUST be ignored by revision control tools (e.g.: Git, Mercurial, Subversion,
-etc.).
-
-It MUST NOT be committed to revision control repositories.
 
 This publication does not otherwise define the structure and contents of the
 directory.
