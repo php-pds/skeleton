@@ -15,7 +15,7 @@ foreach ($autoloadFiles as $autoloadFile) {
 }
 
 if (! $autoload) {
-    echo "Autoload file not found; try 'composer install' first." . PHP_EOL;
+    echo "Autoload file not found; try 'composer dump-autoload' first." . PHP_EOL;
     exit(1);
 }
 
