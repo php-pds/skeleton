@@ -5,7 +5,7 @@ class ComplianceValidator
 {
     const STATE_OPTIONAL_NOT_PRESENT = 1;
     const STATE_CORRECT_PRESENT = 2;
-    const STATE_REQUIRED_NOT_PRESENT = 3;
+    const STATE_RECOMMENDED_NOT_PRESENT = 3;
     const STATE_INCORRECT_PRESENT = 4;
 
     protected $files = null;
@@ -28,7 +28,6 @@ class ComplianceValidator
             "Other resource files" => $this->checkResources($lines),
             "PHP source code" => $this->checkSrc($lines),
             "Test code" => $this->checkTests($lines),
-            "Package managers" => $this->checkVendor($lines),
             "Log of changes between releases" => $this->checkChangelog($lines),
             "Guidelines for contributors" => $this->checkContributing($lines),
             "Licensing information" => $this->checkLicense($lines),
@@ -81,7 +80,7 @@ class ComplianceValidator
             self::STATE_OPTIONAL_NOT_PRESENT => "Optional {$expected} not present",
             self::STATE_CORRECT_PRESENT => "Correct {$actual} present",
             self::STATE_INCORRECT_PRESENT => "Incorrect {$actual} present",
-            self::STATE_REQUIRED_NOT_PRESENT => "Required {$expected} not present",
+            self::STATE_RECOMMENDED_NOT_PRESENT => "Recommended {$expected} not present",
         ];
         echo $this->colorConsoleText("- " . $label . ": " . $messages[$complianceState], $complianceState) . PHP_EOL;
     }
@@ -92,7 +91,7 @@ class ComplianceValidator
             self::STATE_OPTIONAL_NOT_PRESENT => "\033[43;30m",
             self::STATE_CORRECT_PRESENT => "\033[42;30m",
             self::STATE_INCORRECT_PRESENT => "\033[41m",
-            self::STATE_REQUIRED_NOT_PRESENT => "\033[41m",
+            self::STATE_RECOMMENDED_NOT_PRESENT => "\033[41m",
         ];
         if (!array_key_exists($complianceState, $colors)) {
             return $text;
@@ -114,7 +113,7 @@ class ComplianceValidator
         return [self::STATE_OPTIONAL_NOT_PRESENT, $pass, null];
     }
 
-    protected function checkFile($lines, $pass, array $fail)
+    protected function checkFile($lines, $pass, array $fail, $state = self::STATE_OPTIONAL_NOT_PRESENT)
     {
         foreach ($lines as $line) {
             $line = trim($line);
@@ -127,18 +126,7 @@ class ComplianceValidator
                 }
             }
         }
-        return [self::STATE_OPTIONAL_NOT_PRESENT, $pass, null];
-    }
-
-    protected function checkVendor($lines, $pass = 'vendor/')
-    {
-        foreach ($lines as $line) {
-            $line = trim($line);
-            if ($line == $pass) {
-                return [self::STATE_CORRECT_PRESENT, $pass, $line];
-            }
-        }
-        return [self::STATE_REQUIRED_NOT_PRESENT, $pass, null];
+        return [$state, $pass, null];
     }
 
     protected function checkChangelog($lines)
@@ -168,13 +156,18 @@ class ComplianceValidator
 
     protected function checkLicense($lines)
     {
-        return $this->checkFile($lines, 'LICENSE', [
-            '/^.*EULA.*$/i',
-            '/^.*(GPL|BSD).*$/i',
-            '/^([A-Z-]+)?LI(N)?(S|C)(E|A)N(S|C)(E|A)(_[A-Z_]+)?(\.[a-z]+)?$/i',
-            '/^COPY(I)?NG(\.[a-z]+)?$/i',
-            '/^COPYRIGHT(\.[a-z]+)?$/i',
-        ]);
+        return $this->checkFile(
+            $lines,
+            'LICENSE',
+            [
+                '/^.*EULA.*$/i',
+                '/^.*(GPL|BSD).*$/i',
+                '/^([A-Z-]+)?LI(N)?(S|C)(E|A)N(S|C)(E|A)(_[A-Z_]+)?(\.[a-z]+)?$/i',
+                '/^COPY(I)?NG(\.[a-z]+)?$/i',
+                '/^COPYRIGHT(\.[a-z]+)?$/i',
+            ],
+            self::STATE_RECOMMENDED_NOT_PRESENT
+        );
     }
 
     protected function checkReadme($lines)

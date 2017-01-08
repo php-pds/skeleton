@@ -42,7 +42,7 @@ class PackageGenerator
         foreach ($validatorResults as $label => $complianceResult) {
             if (in_array($complianceResult['state'], [
                 ComplianceValidator::STATE_OPTIONAL_NOT_PRESENT,
-                ComplianceValidator::STATE_REQUIRED_NOT_PRESENT,
+                ComplianceValidator::STATE_RECOMMENDED_NOT_PRESENT,
                 ])) {
                 $files[$label] = $complianceResult['expected'];
             }
