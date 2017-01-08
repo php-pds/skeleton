@@ -214,6 +214,12 @@ class ComplianceValidator
             'doc/',
             'guide/',
             'phpdoc/',
+            'apidocs/',
+            'apidoc/',
+            'api-reference/',
+            'user_guide/',
+            'manuals/',
+            'phpdocs/',
         ]);
     }
 
@@ -245,6 +251,11 @@ class ComplianceValidator
             'public_html/',
             'publish/',
             'pages/',
+            'javascripts/',
+            'icons/',
+            'imgs/',
+            'wwwroot/',
+            'font/',
         ]);
     }
 
@@ -272,6 +283,7 @@ class ComplianceValidator
             'code/',
             'classes/',
             'func/',
+            'src-dev/',
         ]);
     }
 
@@ -282,6 +294,10 @@ class ComplianceValidator
             'unit-tests/',
             'phpunit/',
             'testing/',
+            'unittest/',
+            'unit_tests/',
+            'unit_test/',
+            'phpunit-tests/',
         ]);
     }
 
