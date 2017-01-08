@@ -5,7 +5,14 @@
     "homepage": "https://github.com/php-pds/skeleton",
     "license": "CC-BY-SA-4.0",
     "autoload": {
-        "psr-4": { "Pds\\Skeleton\\": "src/" }
+        "psr-4": {
+            "Pds\\Skeleton\\": "src/"
+        }
     },
-    "bin": ["bin/pdsskeleton"]
+    "autoload-dev": {
+        "psr-4": {
+            "Pds\\Skeleton\\": "tests/"
+        }
+    },
+    "bin": ["bin/pds-skeleton"]
 }
