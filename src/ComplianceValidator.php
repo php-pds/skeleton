@@ -1,5 +1,4 @@
 <?php
-
 namespace Pds\Skeleton;
 
 class ComplianceValidator

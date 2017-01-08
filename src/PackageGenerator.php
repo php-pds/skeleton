@@ -1,8 +1,5 @@
 <?php
-
 namespace Pds\Skeleton;
-
-use Pds\Skeleton\ComplianceValidator;
 
 class PackageGenerator
 {
