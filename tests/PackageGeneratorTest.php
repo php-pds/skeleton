@@ -1,28 +1,16 @@
 <?php
-
-$autoloadFiles = [
-    __DIR__ . '/../vendor/autoload.php',
-    __DIR__ . '/../../../autoload.php'
-];
-
-foreach ($autoloadFiles as $autoloadFile) {
-    if (file_exists($autoloadFile)) {
-        require_once $autoloadFile;
-        break;
-    }
-}
-
-use Pds\Skeleton\ComplianceValidator;
-use Pds\Skeleton\PackageGenerator;
-
-$tester = new PackageGeneratorTest();
-$tester->testGenerate_WithMissingBin_ReturnsBin();
-
-echo "Errors: {$tester->numErrors}" . PHP_EOL;
+namespace Pds\Skeleton;
 
 class PackageGeneratorTest
 {
     public $numErrors = 0;
+
+    public static function run()
+    {
+        $tester = new PackageGeneratorTest();
+        $tester->testGenerate_WithMissingBin_ReturnsBin();
+        echo __CLASS__ . " errors: {$tester->numErrors}" . PHP_EOL;
+    }
 
     public function testGenerate_WithMissingBin_ReturnsBin()
     {

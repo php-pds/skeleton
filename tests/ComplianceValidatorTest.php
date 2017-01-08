@@ -1,29 +1,17 @@
 <?php
-
-$autoloadFiles = [
-    __DIR__ . '/../vendor/autoload.php',
-    __DIR__ . '/../../../autoload.php'
-];
-
-foreach ($autoloadFiles as $autoloadFile) {
-    if (file_exists($autoloadFile)) {
-        require_once $autoloadFile;
-        break;
-    }
-}
-
-use Pds\Skeleton\ComplianceValidator;
-
-$tester = new ComplianceValidatorTest();
-// Test all 4 possible states.
-$tester->testValidate_WithIncorrectBin_ReturnsIncorrectBin();
-$tester->testValidate_WithoutVendor_ReturnsMissingVendor();
-
-echo "Errors: {$tester->numErrors}" . PHP_EOL;
+namespace Pds\Skeleton;
 
 class ComplianceValidatorTest
 {
     public $numErrors = 0;
+
+    public static function run()
+    {
+        $tester = new ComplianceValidatorTest();
+        $tester->testValidate_WithIncorrectBin_ReturnsIncorrectBin();
+        $tester->testValidate_WithoutVendor_ReturnsMissingVendor();
+        echo __CLASS__ . " errors: {$tester->numErrors}" . PHP_EOL;
+    }
 
     public function testValidate_WithIncorrectBin_ReturnsIncorrectBin()
     {

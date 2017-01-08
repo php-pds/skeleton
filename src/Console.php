@@ -1,5 +1,4 @@
 <?php
-
 namespace Pds\Skeleton;
 
 class Console
@@ -7,6 +6,7 @@ class Console
     protected $commandsWhitelist = [
         'validate' => 'Pds\Skeleton\ComplianceValidator',
         'generate' => 'Pds\Skeleton\PackageGenerator',
+        'test' => 'Pds\Skeleton\TestRunner',
     ];
 
     public function execute($args)
@@ -19,7 +19,7 @@ class Console
             if (array_key_exists($commandName, $this->commandsWhitelist)) {
                 return $this->executeCommand($this->commandsWhitelist[$commandName], $args);
             }
-            
+
             $this->outputHelp();
             return false;
         }
@@ -38,7 +38,7 @@ class Console
     {
         echo 'Available commands:' . PHP_EOL;
         foreach ($this->commandsWhitelist as $key => $value) {
-            echo 'pdsskeleton ' . $key . PHP_EOL;
+            echo 'pds-skeleton ' . $key . PHP_EOL;
         }
     }
 }
