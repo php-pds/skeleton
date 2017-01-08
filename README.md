@@ -6,6 +6,8 @@ packages.
 Please see <https://github.com/php-pds/skeleton_research> for background
 information.
 
+Command-line tools included with this standard are documented [here](./docs/tools.md).
+
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
 "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this publication are to be
 interpreted as described in [RFC 2119](http://tools.ietf.org/html/rfc2119).
@@ -35,20 +37,6 @@ A package MUST use these names for these root-level files:
 
 A package SHOULD include a root-level file indicating the licensing and
 copyright terms of the package contents.
-
-## Validator
-
-Quickly validate your project's compliance by following these steps:
-
-- Install package in your project: `composer require pds/skeleton @dev`
-- Run the validator: `vendor/bin/pdsskeleton validate`
-
-## Generator
-
-Generate a compliant package skeleton by following these steps:
-
-- Install package in your project: `composer require pds/skeleton @dev`
-- Run the generator: `vendor/bin/pdsskeleton generate`
 
 ## Root-Level Directories
 
