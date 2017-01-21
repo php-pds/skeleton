@@ -10,9 +10,9 @@ class ComplianceValidator
 
     protected $files = null;
 
-    public function execute()
+    public function execute($root = null)
     {
-        $lines = $this->getFiles();
+        $lines = $this->getFiles($root);
         $results = $this->validate($lines);
         $this->outputResults($results);
         return true;
@@ -52,10 +52,12 @@ class ComplianceValidator
     /**
      * Get list of files and directories previously set, or generate from parent project.
      */
-    public function getFiles()
+    public function getFiles($root = null)
     {
+        $root = $root ?: __DIR__ . '/../../../../';
+
         if ($this->files == null) {
-            $files = scandir(__DIR__ . "/../../../../");
+            $files = scandir($root);
             foreach ($files as $i => $file) {
                 if (is_dir($file)) {
                     $files[$i] .= "/";
