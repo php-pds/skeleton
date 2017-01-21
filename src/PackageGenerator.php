@@ -3,23 +3,24 @@ namespace Pds\Skeleton;
 
 class PackageGenerator
 {
-    public function execute()
+    public function execute($root = null)
     {
         $validator = new ComplianceValidator();
         $lines = $validator->getFiles();
         $validatorResults = $validator->validate($lines);
-        $files = $this->createFiles($validatorResults);
+        $files = $this->createFiles($validatorResults, $root);
         $this->outputResults($files);
         return true;
     }
 
     public function createFiles($validatorResults, $root = null)
     {
-        if ($root == null) {
-            $root = realpath(__DIR__ . "/../../../../");
-        }
+        $root = $root ?: __DIR__ . '/../../../../';
+        $root = realpath($root);
+
         $files = $this->createFileList($validatorResults);
         $createdFiles = [];
+
         foreach ($files as $i => $file) {
             $isDir = substr($file, -1, 1) == '/';
             if ($isDir) {
@@ -33,6 +34,7 @@ class PackageGenerator
             file_put_contents($path, '');
             chmod($path, 0644);
         }
+
         return $createdFiles;
     }
 
