@@ -55,11 +55,12 @@ class ComplianceValidator
     public function getFiles($root = null)
     {
         $root = $root ?: __DIR__ . '/../../../../';
+        $root = realpath($root);
 
         if ($this->files == null) {
             $files = scandir($root);
             foreach ($files as $i => $file) {
-                if (is_dir($file)) {
+                if (is_dir("$root/$file")) {
                     $files[$i] .= "/";
                 }
             }
