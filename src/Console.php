@@ -31,7 +31,7 @@ class Console
     protected function executeCommand($commandClass, $args)
     {
         $command = new $commandClass();
-        return $command->execute($args);
+        return $command->execute(...$args);
     }
 
     protected function outputHelp()
