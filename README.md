@@ -106,8 +106,8 @@ directory.
 The package MAY contain other root-level directories for purposes not described
 by this publication.
 
-This publication does not define the structure and contents of other root-level
-directories.
+This publication does not define the structure and contents of the other
+root-level directories.
 
 ## Root-Level Files
 
@@ -160,5 +160,5 @@ file.
 The package MAY contain other root-level files for purposes not described in
 this publication.
 
-This publication does not otherwise define the structure and contents of the
-other root-level files.
+This publication does not define the structure and contents of the other
+root-level files.
