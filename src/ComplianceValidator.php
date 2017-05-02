@@ -9,13 +9,22 @@ class ComplianceValidator
     const STATE_INCORRECT_PRESENT = 4;
 
     protected $files = null;
+    protected $compliant = true;
 
     public function execute($root = null)
     {
         $lines = $this->getFiles($root);
         $results = $this->validate($lines);
         $this->outputResults($results);
-        return true;
+        if ($this->getCompliant()) {
+            exit(0);
+        }
+        exit(1);
+    }
+
+    public function getCompliant()
+    {
+        return $this->compliant;
     }
 
     public function validate($lines)
@@ -39,6 +48,11 @@ class ComplianceValidator
             $state = $complianceResult[0];
             $expected = $complianceResult[1];
             $actual = $complianceResult[2];
+
+            if ($expected !== $actual && ($state == self::STATE_INCORRECT_PRESENT || $state == self::STATE_RECOMMENDED_NOT_PRESENT)) {
+                $this->compliant = false;
+            }
+
             $results[$expected] = [
                 'label' => $label,
                 'state' => $state,

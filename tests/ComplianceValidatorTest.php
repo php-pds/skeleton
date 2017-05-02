@@ -9,6 +9,8 @@ class ComplianceValidatorTest
     {
         $tester = new ComplianceValidatorTest();
         $tester->testValidate_WithIncorrectBin_ReturnsIncorrectBin();
+        $tester->testValidate_WithNonCompliance_SetsNonCompliantState();
+        $tester->testValidate_WithCompliance_SetsCompliantState();
         echo __CLASS__ . " errors: {$tester->numErrors}" . PHP_EOL;
     }
 
@@ -49,6 +51,39 @@ class ComplianceValidatorTest
                 echo __FUNCTION__ . ": Expected state of {$result['expected']} to be STATE_OPTIONAL_NOT_PRESENT" . PHP_EOL;
                 continue;
             }
+        }
+    }
+
+    public function testValidate_WithNonCompliance_SetsNonCompliantState()
+    {
+        $paths = [
+            'cli/',
+            'test/',
+        ];
+
+        $validator = new ComplianceValidator();
+        $results = $validator->validate($paths);
+
+        if ($validator->getCompliant() == true) {
+            $this->numErrors++;
+            echo __FUNCTION__ . ": Expected a non compliant state" . PHP_EOL;
+        }
+    }
+
+    public function testValidate_WithCompliance_SetsCompliantState()
+    {
+        $paths = [
+            'bin/',
+            'tests/',
+            'LICENSE.md',
+        ];
+
+        $validator = new ComplianceValidator();
+        $results = $validator->validate($paths);
+
+        if ($validator->getCompliant() == false) {
+            $this->numErrors++;
+            echo __FUNCTION__ . ": Expected a compliant state" . PHP_EOL;
         }
     }
 }
