@@ -6,7 +6,7 @@ packages.
 Please see <https://github.com/php-pds/skeleton_research> for background
 information.
 
-Command-line tools included with this standard are documented [here](./docs/tools.md).
+Command-line tools for `validating` or `generating` PDS conform packages which are included with this standard are documented [here](./docs/tools.md).
 
 The key words "MUST", "MUST NOT", "REQUIRED", "SHALL", "SHALL NOT", "SHOULD",
 "SHOULD NOT", "RECOMMENDED", "MAY", and "OPTIONAL" in this publication are to be
