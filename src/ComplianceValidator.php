@@ -16,10 +16,7 @@ class ComplianceValidator
         $lines = $this->getFiles($root);
         $results = $this->validate($lines);
         $this->outputResults($results);
-        if ($this->getCompliant()) {
-            exit(0);
-        }
-        exit(1);
+        return $this->getCompliant();
     }
 
     public function getCompliant()
