@@ -118,8 +118,8 @@ release or version, it MUST be named `CHANGELOG`.
 
 It MAY have a lowercase filename extension indicating the file format.
 
-This publication does not otherwise define the structure and contents of the
-file.
+It is RECOMMENDED that the change log follow the format described
+in [Keep a Changelog](http://keepachangelog.com/).
 
 ### CONTRIBUTING
 
