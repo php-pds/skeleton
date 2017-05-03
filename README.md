@@ -38,6 +38,8 @@ A package MUST use these names for these root-level files:
 A package SHOULD include a root-level file indicating the licensing and
 copyright terms of the package contents.
 
+It is RECOMMENDED that packages follow [semantic versioning](http://semver.org/).
+
 ## Root-Level Directories
 
 ### bin/
