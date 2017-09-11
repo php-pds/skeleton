@@ -6,7 +6,7 @@ class PackageGenerator
     public function execute($root = null)
     {
         $validator = new ComplianceValidator();
-        $lines = $validator->getFiles();
+        $lines = $validator->getFiles($root);
         $validatorResults = $validator->validate($lines);
         $files = $this->createFiles($validatorResults, $root);
         $this->outputResults($files);
