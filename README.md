@@ -114,7 +114,7 @@ root-level directories.
 ### CHANGELOG
 
 If the package provides a root-level file with a list of changes since the last
-release or version, it MUST be named `CHANGELOG`.
+release or version, it MUST be named `CHANGELOG(.*)`.
 
 It MAY have a lowercase filename extension indicating the file format.
 
@@ -124,7 +124,7 @@ file.
 ### CONTRIBUTING
 
 If the package provides a root-level file that describes how to contribute to
-the package, it MUST be named `CONTRIBUTING`.
+the package, it MUST be named `CONTRIBUTING(.*)`.
 
 It MAY have a lowercase filename extension indicating the file format.
 
@@ -148,7 +148,7 @@ file.
 ### README
 
 If the package provides a root-level file with information about the package
-itself, it MUST be named `README`.
+itself, it MUST be named `README(.*)`.
 
 It MAY have a lowercase filename extension indicating the file format.
 
