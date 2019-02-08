@@ -66,7 +66,7 @@ directory.
 
 ### public/
 
-If the package provides a root-level directory for web server files, it MUST be
+If the package provides a root-level directory for web server files (such as index.php), it MUST be
 named `public/`.
 
 This publication does not otherwise define the structure and contents of the
@@ -79,7 +79,7 @@ directory.
 
 ### resources/
 
-If the package provides a root-level directory for other resource files, it MUST
+If the package provides a root-level directory for other resource files (such as language files), it MUST
 be named `resources/`.
 
 This publication does not otherwise define the structure and contents of the
@@ -87,7 +87,7 @@ directory.
 
 ### src/
 
-If the package provides a root-level directory for PHP source code files, it
+If the package provides a root-level directory for PHP source code files (such as class definitions), it
 MUST be named `src/`.
 
 This publication does not otherwise define the structure and contents of the
@@ -95,7 +95,7 @@ directory.
 
 ### tests/
 
-If the package provides a root-level directory for test files, it MUST be named
+If the package provides a root-level directory for test files (such as test cases and database fixtures), it MUST be named
 `tests/`.
 
 This publication does not otherwise define the structure and contents of the
