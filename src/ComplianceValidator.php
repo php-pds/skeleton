@@ -14,8 +14,12 @@ class ComplianceValidator
     public function execute($root = null)
     {
         $lines = $this->getFiles($root);
-        $results = $this->validate($lines);
-        $this->outputResults($results);
+        try {
+            $results = $this->validate($lines);
+            $this->outputResults($results);
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+        }
         return $this->getCompliant();
     }
 
@@ -67,6 +71,10 @@ class ComplianceValidator
     {
         $root = $root ?: __DIR__ . '/../../../../';
         $root = realpath($root);
+
+        if (!is_dir($root)) {
+            throw new GeneratorException("Specified directory does not exist. Remember to use an absolute path.");
+        }
 
         if ($this->files == null) {
             $files = scandir($root);

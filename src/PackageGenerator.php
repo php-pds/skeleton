@@ -6,10 +6,14 @@ class PackageGenerator
     public function execute($root = null)
     {
         $validator = new ComplianceValidator();
-        $lines = $validator->getFiles($root);
-        $validatorResults = $validator->validate($lines);
-        $files = $this->createFiles($validatorResults, $root);
-        $this->outputResults($files);
+        try {
+            $lines = $validator->getFiles($root);
+            $validatorResults = $validator->validate($lines);
+            $files = $this->createFiles($validatorResults, $root);
+            $this->outputResults($files);
+        } catch (\Exception $e) {
+            echo $e->getMessage();
+        }
         return true;
     }
 
@@ -17,6 +21,14 @@ class PackageGenerator
     {
         $root = $root ?: __DIR__ . '/../../../../';
         $root = realpath($root);
+
+        if (!is_dir($root)) {
+            throw new GeneratorException("Specified directory does not exist. Create it first.");
+        }
+
+        if (!is_writable($root) || !is_executable($root)) {
+            throw new GeneratorException("Cannot write into specified directory. Please check folder permissions for {$root}");
+        }
 
         $files = $this->createFileList($validatorResults);
         $createdFiles = [];
@@ -26,13 +38,15 @@ class PackageGenerator
             if ($isDir) {
                 $path = $root . '/' . substr($file, 0, -1);
                 $createdFiles[$file] = $path;
-                mkdir($path, 0755);
+                !is_dir($path) && !mkdir($path, 0755) && !is_dir($path);
                 continue;
             }
             $path = $root . '/' . $file . '.md';
-            $createdFiles[$file] = $file . '.md';
-            file_put_contents($path, '');
-            chmod($path, 0644);
+            $createdFiles[$file] = $path;
+            if (!file_exists($path)) {
+                file_put_contents($path, '');
+                chmod($path, 0644);
+            }
         }
 
         return $createdFiles;
