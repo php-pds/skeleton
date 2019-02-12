@@ -23,7 +23,7 @@ class PackageGenerator
         $root = realpath($root);
 
         if (!is_dir($root)) {
-            throw new GeneratorException("Specified directory does not exist. Remember to use an absolute path.");
+            throw new GeneratorException("Specified directory does not exist. Create it first.");
         }
 
         if (!is_writable($root) || !is_executable($root)) {
