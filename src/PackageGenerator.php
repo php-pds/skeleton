@@ -6,15 +6,14 @@ class PackageGenerator
     public function execute($root = null)
     {
         $validator = new ComplianceValidator();
-        $lines = $validator->getFiles($root);
-        $validatorResults = $validator->validate($lines);
         try {
+            $lines = $validator->getFiles($root);
+            $validatorResults = $validator->validate($lines);
             $files = $this->createFiles($validatorResults, $root);
+            $this->outputResults($files);
         } catch (\Exception $e) {
             echo $e->getMessage();
         }
-
-        $this->outputResults($files);
         return true;
     }
 
@@ -22,6 +21,10 @@ class PackageGenerator
     {
         $root = $root ?: __DIR__ . '/../../../../';
         $root = realpath($root);
+
+        if (!is_dir($root)) {
+            throw new GeneratorException("Specified directory does not exist. Remember to use an absolute path.");
+        }
 
         if (!is_writable($root) || !is_executable($root)) {
             throw new GeneratorException("Cannot write into specified directory. Please check folder permissions for {$root}");
@@ -39,7 +42,7 @@ class PackageGenerator
                 continue;
             }
             $path = $root . '/' . $file . '.md';
-            $createdFiles[$file] = $file . '.md';
+            $createdFiles[$file] = $path;
             if (!file_exists($path)) {
                 file_put_contents($path, '');
                 chmod($path, 0644);
@@ -69,8 +72,4 @@ class PackageGenerator
             echo "Created {$file}" . PHP_EOL;
         }
     }
-}
-
-class GeneratorException extends \Exception
-{
 }
