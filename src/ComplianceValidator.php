@@ -65,6 +65,7 @@ class ComplianceValidator
      */
     public function getFiles($root = null)
     {
+        $root = $root ?: getcwd();
         $root = $root ?: __DIR__ . '/../../../../';
         $root = realpath($root);
 
