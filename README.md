@@ -17,14 +17,15 @@ interpreted as described in [RFC 2119](http://tools.ietf.org/html/rfc2119).
 A package MUST use these names for these root-level directories:
 
 | If a package has a root-level directory for ... | ... then it MUST be named: |
-| ----------------------------------------------- | -------------------------- |
-| command-line executables                        | `bin/`                     |
-| configuration files                             | `config/`                  |
-| documentation files                             | `docs/`                    |
-| web server files                                | `public/`                  |
-| other resource files                            | `resources/`               |
-| PHP source code                                 | `src/`                     |
-| test code                                       | `tests/`                   |
+|------------------------------------------------|----------------------------|
+| command-line executables                       | `bin/`                     |
+| configuration files                            | `config/`                  |
+| documentation files                            | `docs/`                    |
+| docker files                                   | `infra/`                   |
+| web server files                               | `public/`                  |
+| other resource files                           | `resources/`               |
+| PHP source code                                | `src/`                     |
+| test code                                      | `tests/`                   |
 
 A package MUST use these names for these root-level files:
 
@@ -60,6 +61,11 @@ directory.
 
 If the package provides a root-level directory for documentation files, it MUST
 be named `docs/`.
+
+### infra/
+
+If the package provides a php-specif settings, it MUST
+be placed in `infra/`.
 
 This publication does not otherwise define the structure and contents of the
 directory.
@@ -110,6 +116,10 @@ This publication does not define the structure and contents of the other
 root-level directories.
 
 ## Root-Level Files
+
+## Docker
+
+If the package requires any specific extension or specific environment-level configuration, this can be included within the Dockerfile.
 
 ### CHANGELOG
 
