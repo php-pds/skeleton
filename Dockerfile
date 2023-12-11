@@ -17,8 +17,6 @@ RUN apk --update upgrade \
 
 RUN pecl install xdebug-3.2.2
 
-COPY ./infra/php/etc /usr/local/etc/php/
-
 # allow non-root users have home
 RUN mkdir -p /opt/home
 RUN chmod 777 /opt/home

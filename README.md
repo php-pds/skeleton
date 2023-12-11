@@ -21,7 +21,6 @@ A package MUST use these names for these root-level directories:
 | command-line executables                       | `bin/`                     |
 | configuration files                            | `config/`                  |
 | documentation files                            | `docs/`                    |
-| docker files                                   | `infra/`                   |
 | web server files                               | `public/`                  |
 | other resource files                           | `resources/`               |
 | PHP source code                                | `src/`                     |
@@ -61,11 +60,6 @@ directory.
 
 If the package provides a root-level directory for documentation files, it MUST
 be named `docs/`.
-
-### infra/
-
-If the package provides a php-specif settings, it MUST
-be placed in `infra/`.
 
 This publication does not otherwise define the structure and contents of the
 directory.
@@ -116,10 +110,6 @@ This publication does not define the structure and contents of the other
 root-level directories.
 
 ## Root-Level Files
-
-## Docker
-
-If the package requires any specific extension or specific environment-level configuration, this can be included within the Dockerfile.
 
 ### CHANGELOG
 
@@ -172,3 +162,12 @@ this publication.
 
 This publication does not define the structure and contents of the other
 root-level files.
+
+### Using docker-compose
+
+This skeleton provides a docker-compose.yml for use with docker-compose; it uses the Dockerfile provided as its base. Build and start the image using commands encapsulated in Makefile:
+
+```shell
+$ make start
+```
+
