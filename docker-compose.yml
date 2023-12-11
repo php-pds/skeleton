@@ -1,0 +1,9 @@
+version: "3.9"
+
+services:
+  php:
+    build: .
+    container_name: pds.skeleton
+    tty: true
+    volumes:
+      - ./:/app

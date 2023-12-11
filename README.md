@@ -17,14 +17,14 @@ interpreted as described in [RFC 2119](http://tools.ietf.org/html/rfc2119).
 A package MUST use these names for these root-level directories:
 
 | If a package has a root-level directory for ... | ... then it MUST be named: |
-| ----------------------------------------------- | -------------------------- |
-| command-line executables                        | `bin/`                     |
-| configuration files                             | `config/`                  |
-| documentation files                             | `docs/`                    |
-| web server files                                | `public/`                  |
-| other resource files                            | `resources/`               |
-| PHP source code                                 | `src/`                     |
-| test code                                       | `tests/`                   |
+|------------------------------------------------|----------------------------|
+| command-line executables                       | `bin/`                     |
+| configuration files                            | `config/`                  |
+| documentation files                            | `docs/`                    |
+| web server files                               | `public/`                  |
+| other resource files                           | `resources/`               |
+| PHP source code                                | `src/`                     |
+| test code                                      | `tests/`                   |
 
 A package MUST use these names for these root-level files:
 
@@ -162,3 +162,12 @@ this publication.
 
 This publication does not define the structure and contents of the other
 root-level files.
+
+### Using docker-compose
+
+This skeleton provides a docker-compose.yml for use with docker-compose; it uses the Dockerfile provided as its base. Build and start the image using commands encapsulated in Makefile:
+
+```shell
+$ make start
+```
+
