@@ -162,3 +162,20 @@ this publication.
 
 This publication does not define the structure and contents of the other
 root-level files.
+
+## Promoting PDS Skeleton Compliance
+
+Package maintainers are encouraged to promote their adherence to the PHP Package
+Development Standards (PDS) Skeleton by adding a badge to their `README.md`.
+This makes it easier for users and contributors to identify packages that follow
+the recommended filesystem structure.
+
+For example, a package can include the following badge:
+
+```markdown
+[![PDS Skeleton](https://img.shields.io/badge/PDS-Skeleton-blue)](https://github.com/php-pds/skeleton)
+```
+
+The badge SHOULD only be used when the package complies with the requirements
+defined in this standard. It serves as a declaration of compliance, not as
+independent verification.
